@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Stream Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .chat {
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 480px) {
+      body { display: flex; justify-content: center; }
+      .chat {
+        width: 380px;
+        border-left: 1px solid var(--rule);
+        border-right: 1px solid var(--rule);
+      }
+    }
+
+    .composer {
+      flex-shrink: 0;
+      padding: 10px 14px 14px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .composer[hidden] { display: none; }
+
+    .join-title {
+      margin: 0 0 4px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .join-hint {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    form { display: flex; gap: 8px; }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 36px;
+      padding: 0 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--field);
+      color: var(--text);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    input::placeholder { color: var(--muted); }
+    input:hover { background: var(--field-hover); }
+    input:focus {
+      outline: 2px solid var(--purple);
+      outline-offset: -2px;
+    }
+
+    button {
+      height: 36px;
+      padding: 0 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--purple);
+      color: #fff;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--purple-hover); }
+  </style>
+</head>
+<body>
+  <div class="chat">
+    <header>Stream Chat</header>
+    <div id="messages">
+      <div class="system">Welcome to the chat room!</div>
+    </div>
+    <div class="composer" id="name-composer">
+      <p class="join-title">Choose a username</p>
+      <p class="join-hint">This is how you'll appear in chat.</p>
+      <form id="name-form">
+        <input id="name-input" type="text" autocomplete="nickname" maxlength="32" placeholder="Username" aria-label="Username" />
+        <button type="submit">Join Chat</button>
+      </form>
+    </div>
+    <div class="composer" id="chat-composer" hidden>
+      <form id="chat-form">
+        <input id="chat-input" type="text" autocomplete="off" maxlength="500" placeholder="Send a message" />
+        <button type="submit">Chat</button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="/client.js"></script>
+</body>
+</html>

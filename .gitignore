@@ -1,0 +1,5 @@
+node_modules/
+.venv/
+qr.png
+.env
+.DS_Store

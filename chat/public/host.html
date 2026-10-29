@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stream Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .host {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .join {
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      background: var(--header);
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .qr-wrap {
+      padding: 6px;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    #qr {
+      display: block;
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .chat { flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="host">
+    <div class="join">
+      <div class="qr-wrap">
+        <img id="qr" alt="QR code to join chat" />
+      </div>
+    </div>
+    <section class="chat">
+      <header>TAGD Chat</header>
+      <div id="messages">
+        <div class="system">Welcome to chat! Be nice to our presenters!</div>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="/host.js"></script>
+</body>
+</html>
